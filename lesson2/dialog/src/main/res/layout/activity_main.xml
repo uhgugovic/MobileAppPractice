@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Snackbar -->
+        <Button
+            android:id="@+id/btnSnackbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="showSnackbar"
+            android:text="Показать Snackbar" />
+
+        <!-- TimePickerDialog -->
+        <Button
+            android:id="@+id/btnTimePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="showTimePickerDialog"
+            android:text="Выбрать время" />
+
+        <!-- DatePickerDialog -->
+        <Button
+            android:id="@+id/btnDatePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="showDatePickerDialog"
+            android:text="Выбрать дату" />
+
+        <!-- ProgressDialog -->
+        <Button
+            android:id="@+id/btnProgressDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="showProgressDialog"
+            android:text="Показать ProgressDialog" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnShowDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickShowDialog"
+        android:text="Показать диалог"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

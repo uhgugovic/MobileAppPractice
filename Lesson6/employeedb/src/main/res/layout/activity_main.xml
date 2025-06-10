@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Имя героя"/>
+
+    <EditText
+        android:id="@+id/etPower"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Суперспособность"/>
+
+    <EditText
+        android:id="@+id/etStrength"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Уровень силы (1-100)"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Добавить героя"/>
+
+    <Button
+        android:id="@+id/btnShowAll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Показать всех героев"/>
+
+    <TextView
+        android:id="@+id/tvOutput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>

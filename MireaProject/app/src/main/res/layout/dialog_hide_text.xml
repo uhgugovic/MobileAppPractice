@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Имя файла"
+        android:layout_marginBottom="4dp"/>
+
+    <EditText
+        android:id="@+id/etSourceFile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Текст для скрытия"
+        android:layout_marginBottom="4dp"/>
+
+    <EditText
+        android:id="@+id/etTextToHide"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="top"
+        android:inputType="textMultiLine"/>
+</LinearLayout>

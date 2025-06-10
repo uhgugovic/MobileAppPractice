@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/inputTotalPairs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Общее количество пар"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/inputStudyDays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Количество учебных дней"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Рассчитать"/>
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Результат будет здесь"
+        android:textSize="18sp"/>
+</LinearLayout>

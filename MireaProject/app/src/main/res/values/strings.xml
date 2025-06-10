@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">MireaProject</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Меню</string>
+    <string name="nav_header_subtitle">artemov@mirea.ru</string>
+    <string name="menu_info">Информация</string>
+    <string name="menu_web">Браузер</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="cyber_security_title">Кибербезопасность</string>
+    <string name="cyber_security_content">
+    • Атаки типа MITM (Man-in-the-Middle)\n
+    • Фишинг и социальная инженерия\n
+    • SQL-инъекции\n
+    • Защита с помощью VPN и TLS\n
+    • Двухфакторная аутентификация
+    </string>
+    <string name="default_web_client_id">mireaprojectlogin</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

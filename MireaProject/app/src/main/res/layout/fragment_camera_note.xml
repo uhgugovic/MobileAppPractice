@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Фотокарточка"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"/>
+
+        <ImageView
+            android:id="@+id/photoView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            android:background="#EEE"
+            android:contentDescription="Превью фото"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btnTakePhoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Сделать фото"
+            android:layout_marginBottom="16dp"/>
+    </LinearLayout>
+</ScrollView>

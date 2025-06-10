@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/btnListFiles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Показать файлы"/>
+
+    <ListView
+        android:id="@+id/lvFiles"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btnListFiles"
+        android:layout_marginTop="16dp"
+        android:layout_above="@+id/btnGroup"/>
+
+    <LinearLayout
+        android:id="@+id/btnGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btnHideText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Скрыть текст"/>
+
+        <Button
+            android:id="@+id/btnExtractText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Извлечь текст"/>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:layout_above="@id/btnGroup"
+        app:srcCompat="@android:drawable/ic_input_add"/>
+</RelativeLayout>
