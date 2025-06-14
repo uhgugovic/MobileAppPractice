@@ -1,5 +1,6 @@
 package ru.mirea.artemovnp.mireaproject;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +17,11 @@ import java.util.List;
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
 
     private List<NewsItem> newsItems;
+    private Context context;
 
-    public NewsAdapter(List<NewsItem> newsItems) {
+    public NewsAdapter(List<NewsItem> newsItems, Context context) {
         this.newsItems = newsItems;
+        this.context = context;
     }
 
     @NonNull
@@ -36,7 +39,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         holder.description.setText(item.getDescription());
 
         if (item.getUrlToImage() != null && !item.getUrlToImage().isEmpty()) {
-            Picasso.get().load(item.getUrlToImage()).into(holder.image);
+            Picasso.get()
+                    .load(item.getUrlToImage())
+                    .placeholder(R.drawable.ic_news_placeholder)
+                    .error(R.drawable.ic_news_placeholder)
+                    .into(holder.image);
+        } else {
+            holder.image.setImageResource(R.drawable.ic_news_placeholder);
         }
     }
 

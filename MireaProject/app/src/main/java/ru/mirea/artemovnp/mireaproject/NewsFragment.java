@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +48,8 @@ public class NewsFragment extends Fragment {
     private ProgressBar progressBar;
     private NewsAdapter adapter;
     private List<NewsItem> newsItems = new ArrayList<>();
+
+    private static final String TAG = "NewsFragment";
 
     public NewsFragment() {
         // Required empty public constructor
@@ -86,7 +91,7 @@ public class NewsFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView);
         progressBar = view.findViewById(R.id.progressBar);
 
-        adapter = new NewsAdapter(newsItems);
+        adapter = new NewsAdapter(newsItems, requireContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 
@@ -97,6 +102,7 @@ public class NewsFragment extends Fragment {
 
     private void fetchNews() {
         progressBar.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.GONE);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://newsapi.org/v2/")
@@ -105,28 +111,30 @@ public class NewsFragment extends Fragment {
 
         NewsApiService service = retrofit.create(NewsApiService.class);
 
-        Call<NewsResponse> call = service.getTopHeadlines(
-                "ru",
-                "e5623b6cc66f45759d9a208f526ccbee",
-                10);
+        Call<NewsResponse> call = service.getTopHeadlines("us", "e5623b6cc66f45759d9a208f526ccbee", 10);
 
         call.enqueue(new Callback<NewsResponse>() {
             @Override
             public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
                 progressBar.setVisibility(View.GONE);
                 if (response.isSuccessful() && response.body() != null) {
+                    Log.d(TAG, "Ответ сервера: " + new Gson().toJson(response.body()));
+                    Log.d(TAG, "Получено статей: " + response.body().getArticles().size());
                     newsItems.clear();
                     newsItems.addAll(response.body().getArticles());
                     adapter.notifyDataSetChanged();
+                    recyclerView.setVisibility(View.VISIBLE);
                 } else {
-                    Toast.makeText(getContext(), "Ошибка загрузки данных", Toast.LENGTH_SHORT).show();
+                    Log.e(TAG, "Ошибка ответа: " + response.code() + " - " + response.message());
+                    Toast.makeText(getContext(), "Ошибка сервера: " + response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<NewsResponse> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
-                Toast.makeText(getContext(), "Ошибка сети: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "Ошибка сети: ", t);
+                Toast.makeText(getContext(), "Ошибка сети: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
